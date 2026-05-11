@@ -132,11 +132,8 @@
   .avatar {
     width: 100px; height: 100px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-soft), #9fe1cb);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif);
-    font-size: 2.5rem;
-    color: var(--accent);
+    object-fit: cover;
+    display: block;
   }
   .hero-card h2 {
     font-family: var(--serif);
@@ -379,7 +376,7 @@
     </div>
   </div>
   <div class="hero-card">
-    <div class="avatar">M</div>
+    <img src="avatar.png" alt="Maria Swan" class="avatar">
     <h2>Maria Lebedeva</h2>
     <p>BI Team Lead<br>IT Outsourcing · Financial Sector</p>
     <div class="card-stats">
