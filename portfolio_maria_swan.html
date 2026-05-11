@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maria Swan — BI Team Lead</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --ink-light: #5f5e5a;
+    --accent: #0f6e56;
+    --accent-soft: #e1f5ee;
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.1);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,249,246,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--ink-light);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-desc {
+    font-size: 17px; font-weight: 300;
+    color: var(--ink-light);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px; font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+    border: none;
+  }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    color: var(--ink);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* AVATAR CARD */
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+  }
+  .avatar {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-soft), #9fe1cb);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    color: var(--accent);
+  }
+  .hero-card h2 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--ink);
+  }
+  .hero-card p {
+    font-size: 13px; color: var(--ink-light);
+    text-align: center; line-height: 1.5;
+  }
+  .card-stats {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    width: 100%; gap: 8px;
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+    margin-top: 0.25rem;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--ink);
+  }
+  .stat-label {
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+  }
+
+  /* SECTION */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 3rem;
+    max-width: 600px;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .skill-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    background: var(--bg);
+  }
+  .skill-card h3 {
+    font-size: 15px; font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  .skill-bar-bg {
+    height: 4px; background: var(--border);
+    border-radius: 100px;
+    margin-bottom: 0.5rem;
+  }
+  .skill-bar {
+    height: 4px; background: var(--accent);
+    border-radius: 100px;
+    transition: width 1s ease;
+  }
+  .skill-level {
+    font-size: 12px; color: var(--ink-light);
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .project-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .project-card:hover::before { opacity: 1; }
+  .project-num {
+    font-family: var(--serif); font-size: 2.5rem;
+    color: var(--border); line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .project-card h3 {
+    font-size: 17px; font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+  .project-card p {
+    font-size: 14px; color: var(--ink-light);
+    line-height: 1.6;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 11px; font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-top: 1rem;
+    margin-right: 4px;
+  }
+
+  /* ABOUT */
+  #about { background: var(--ink); color: #fff; }
+  #about .section-label { color: #9fe1cb; }
+  #about .section-title { color: #fff; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text {
+    font-size: 16px; line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+  }
+  .about-text p + p { margin-top: 1rem; }
+  .about-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .about-list li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    font-size: 15px; color: rgba(255,255,255,0.8);
+  }
+  .about-list li::before {
+    content: '→';
+    color: #9fe1cb;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* CONTACT + QR */
+  #contact { border-top: 1px solid var(--border); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: start;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 15px; color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--accent); }
+  .contact-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .qr-block {
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+  .qr-block p {
+    font-size: 12px; color: var(--ink-light);
+    text-align: center; max-width: 140px;
+  }
+  #qrcode canvas, #qrcode img { border-radius: 8px; }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">M. Swan</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Навыки</a></li>
+    <li><a href="#projects">Проекты</a></li>
+    <li><a href="#about">О себе</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <span class="hero-tag">BI Team Lead · Data & Analytics</span>
+    <h1>Maria<br><em>Swan</em></h1>
+    <p class="hero-desc">
+      Превращаю данные в понятные решения. Power BI, процессы, команды — всё в одном месте.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">Мои проекты →</a>
+      <a href="#contact" class="btn btn-outline">Связаться</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="avatar">M</div>
+    <h2>Maria Swan</h2>
+    <p>BI Team Lead<br>IT Outsourcing · Financial Sector</p>
+    <div class="card-stats">
+      <div class="stat">
+        <span class="stat-num">300+</span>
+        <span class="stat-label">Отчётов</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">1</span>
+        <span class="stat-label">Год в роли</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Лет опыта</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">Экспертиза</p>
+    <h2 class="section-title">Навыки</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Power BI</h3>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="90" style="width:0"></div></div>
+        <span class="skill-level">Продвинутый</span>
+      </div>
+      <div class="skill-card">
+        <h3>DAX</h3>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="85" style="width:0"></div></div>
+        <span class="skill-level">Продвинутый</span>
+      </div>
+      <div class="skill-card">
+        <h3>SQL</h3>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="75" style="width:0"></div></div>
+        <span class="skill-level">Уверенный</span>
+      </div>
+      <div class="skill-card">
+        <h3>Data Visualization</h3>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="88" style="width:0"></div></div>
+        <span class="skill-level">Продвинутый</span>
+      </div>
+      <div class="skill-card">
+        <h3>Team Lead</h3>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="80" style="width:0"></div></div>
+        <span class="skill-level">Растущий</span>
+      </div>
+      <div class="skill-card">
+        <h3>Excel</h3>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="82" style="width:0"></div></div>
+        <span class="skill-level">Уверенный</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label">Портфолио</p>
+    <h2 class="section-title">Ключевые проекты</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-num">01</div>
+        <h3>Стандартизация 300+ отчётов Power BI</h3>
+        <p>UX/UI унификация большого портфеля отчётов для финансового клиента. Разработка единой дизайн-системы, шаблонов и процессов ревью.</p>
+        <span class="tag">Power BI</span>
+        <span class="tag">UX/UI</span>
+        <span class="tag">Стандартизация</span>
+      </div>
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <h3>Пакетное решение для высокого объёма запросов</h3>
+        <p>Внедрение масштабируемого reporting-решения для обработки высокого потока требований без потери качества и сроков.</p>
+        <span class="tag">Процессы</span>
+        <span class="tag">Автоматизация</span>
+      </div>
+      <div class="project-card">
+        <div class="project-num">03</div>
+        <h3>Процесс визуального контроля качества</h3>
+        <p>Создание системы quality review для BI-отчётности: чек-листы, этапы, распределение ответственности внутри команды.</p>
+        <span class="tag">Quality Assurance</span>
+        <span class="tag">Team Lead</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">О себе</p>
+    <h2 class="section-title">Немного обо мне</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>BI Team Lead с опытом в аутсорсинге для финансового сектора. Строю процессы, которые масштабируются — от стандартов визуализации до систем контроля качества.</p>
+        <p>Верю, что хороший дашборд — это не красивая картинка, а инструмент принятия решений. Именно на это и работает моя команда.</p>
+      </div>
+      <ul class="about-list">
+        <li>Power BI & DAX — основной инструментарий</li>
+        <li>Менторинг и развитие аналитиков (ADPList)</li>
+        <li>Публикации по BI на DZone и Habr</li>
+        <li>Планирую переезд в Великобританию (2027)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Контакты</p>
+    <h2 class="section-title">Давайте познакомимся</h2>
+    <div class="contact-grid">
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/yourname" class="contact-link" target="_blank">
+          <span class="contact-icon">in</span>
+          linkedin.com/in/yourname
+        </a>
+        <a href="mailto:your@email.com" class="contact-link">
+          <span class="contact-icon">@</span>
+          your@email.com
+        </a>
+        <a href="https://github.com/MariaSwan25" class="contact-link" target="_blank">
+          <span class="contact-icon">gh</span>
+          github.com/MariaSwan25
+        </a>
+        <a href="https://adplist.org/yourprofile" class="contact-link" target="_blank">
+          <span class="contact-icon">◎</span>
+          ADPList — BI Mentor
+        </a>
+      </div>
+      <div class="qr-block">
+        <div id="qrcode"></div>
+        <p>Сканируй, чтобы открыть портфолио</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Maria Swan · Сделано с любовью к данным</p>
+</footer>
+
+<script>
+  const bars = document.querySelectorAll('.skill-bar');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.w + '%';
+      }
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(b => obs.observe(b));
+
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://mariaswan25.github.io",
+    width: 140,
+    height: 140,
+    colorDark: "#1a1a18",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+</body>
+</html>
