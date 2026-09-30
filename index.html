@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maria Lebedeva — BI Team Lead | Business Intelligence & Analytics</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,17 +17,27 @@
     --bg: #faf9f6;
     --surface: #ffffff;
     --border: rgba(0,0,0,0.1);
-    --serif: 'Playfair Display', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.375rem;
+    --text-stat: 1.5rem;
+    --text-article-title: 1.5rem;
+    --text-project-number: 2.5rem;
+    --text-section-title: clamp(2rem, 4vw, 3rem);
+    --text-hero-title: clamp(3.2rem, 6vw, 6rem);
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: var(--sans);
+    font-family: var(--font-body);
     background: var(--bg);
     color: var(--ink);
-    font-size: 16px;
+    font-size: var(--text-base);
     line-height: 1.7;
   }
 
@@ -42,15 +52,15 @@
     height: 56px;
   }
   .nav-logo {
-    font-family: var(--serif);
-    font-size: 18px;
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
     letter-spacing: -0.3px;
     color: var(--ink);
     text-decoration: none;
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
-    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.04em;
     text-transform: uppercase; color: var(--ink-light);
     text-decoration: none; transition: color 0.2s;
   }
@@ -71,15 +81,15 @@
     display: inline-block;
     background: var(--accent-soft);
     color: var(--accent);
-    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 5px 14px;
     border-radius: 100px;
     margin-bottom: 1.5rem;
   }
   .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(3.2rem, 6vw, 6rem);
+    font-family: var(--font-display);
+    font-size: var(--text-hero-title);
     line-height: 1.1;
     letter-spacing: -1px;
     margin-bottom: 1.5rem;
@@ -90,7 +100,7 @@
     color: var(--accent);
   }
   .hero-desc {
-    font-size: 17px; font-weight: 300;
+    font-size: var(--text-lg); font-weight: 300;
     color: var(--ink-light);
     max-width: 480px;
     margin-bottom: 2.5rem;
@@ -102,7 +112,7 @@
     display: inline-flex; align-items: center; gap: 8px;
     padding: 12px 24px;
     border-radius: 8px;
-    font-size: 14px; font-weight: 500;
+    font-size: var(--text-sm); font-weight: 500;
     text-decoration: none;
     transition: all 0.2s;
     cursor: pointer;
@@ -136,15 +146,15 @@
     display: block;
   }
   .hero-card h2 {
-    font-family: var(--serif);
-    font-size: 1.4rem;
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
     text-align: center;
     color: var(--ink);
   }
-  .hero-role { font-family: var(--sans); font-size: 17px; color: var(--ink); font-weight: 700; letter-spacing: 0.3px; text-align:center; margin-top:6px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-  .hero-info { font-size: 13px; color: var(--ink-light); text-align:center; line-height:1.4; margin-top:6px }
+  .hero-card p.hero-role { font-size: var(--text-base); color: var(--ink); font-weight: 700; letter-spacing: 0.3px; text-align:center; margin-top:6px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  .hero-info { font-size: var(--text-xs); color: var(--ink-light); text-align:center; line-height:1.4; margin-top:6px }
   .hero-card p {
-    font-size: 13px; color: var(--ink-light);
+    font-size: var(--text-xs); color: var(--ink-light);
     text-align: center; line-height: 1.5;
   }
   .card-stats {
@@ -157,13 +167,13 @@
   .stat { text-align: center; padding: 0.25rem 0; }
   .stat-num {
     display: block;
-    font-family: var(--serif);
-    font-size: 1.6rem;
+    font-family: var(--font-display);
+    font-size: var(--text-stat);
     color: var(--ink);
     font-weight: 600;
   }
   .stat-label {
-    font-size: 12px; text-transform: none;
+    font-size: var(--text-xs); text-transform: none;
     letter-spacing: 0.02em;
     color: var(--ink-light);
     margin-top: 4px;
@@ -173,15 +183,15 @@
   section { padding: 5rem 2rem; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-label {
-    font-size: 11px; font-weight: 500;
+    font-size: var(--text-xs); font-weight: 500;
     letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 0.75rem;
   }
   /* About uses the regular section-title styles now */
   .section-title {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: var(--font-display);
+    font-size: var(--text-section-title);
     line-height: 1.15;
     letter-spacing: -0.5px;
     margin-bottom: 3rem;
@@ -191,10 +201,10 @@
   /* Ampersand styling for headings and nav */
   .amp {
     /* Use a classic serif ampersand glyph */
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: inherit;
     font-style: italic;
     font-weight: 400;
-    font-size: 1.25em;
+    font-size: 1em;
     color: var(--ink);
     margin: 0 0.12em;
     line-height: 0.9;
@@ -229,7 +239,7 @@
     background: var(--bg);
   }
   .skill-card h3 {
-    font-size: 15px; font-weight: 500;
+    font-size: var(--text-base); font-weight: 500;
     margin-bottom: 0.5rem;
     color: var(--ink);
   }
@@ -244,7 +254,7 @@
     transition: width 1s ease;
   }
   .skill-level {
-    font-size: 12px; color: var(--ink-light);
+    font-size: var(--text-xs); color: var(--ink-light);
   }
 
   /* PROJECTS */
@@ -276,24 +286,24 @@
   }
   .project-card:hover::before { opacity: 1; }
   .project-num {
-    font-family: var(--serif); font-size: 2.5rem;
+    font-family: var(--font-display); font-size: var(--text-project-number);
     color: var(--border); line-height: 1;
     margin-bottom: 1rem;
   }
   .project-card h3 {
-    font-size: 17px; font-weight: 500;
+    font-size: var(--text-lg); font-weight: 500;
     margin-bottom: 0.75rem;
     color: var(--ink);
   }
   .project-card p {
-    font-size: 14px; color: var(--ink-light);
-    line-height: 1.6;
+    font-size: var(--text-base); color: var(--ink-light);
+    line-height: 1.7;
   }
   .tag {
     display: inline-block;
     background: var(--accent-soft);
     color: var(--accent);
-    font-size: 11px; font-weight: 500;
+    font-size: var(--text-xs); font-weight: 500;
     padding: 3px 10px;
     border-radius: 100px;
     margin-top: 1rem;
@@ -311,14 +321,14 @@
     align-items: start;
   }
   .about-text {
-    font-size: 16px; line-height: 1.8;
+    font-size: var(--text-base); line-height: 1.7;
     color: rgba(255,255,255,0.7);
   }
   .about-text p + p { margin-top: 1rem; }
   .about-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
   .about-list li {
     display: flex; gap: 1rem; align-items: flex-start;
-    font-size: 15px; color: rgba(255,255,255,0.8);
+    font-size: var(--text-base); color: rgba(255,255,255,0.8);
   }
   .about-list li::before {
     content: '→';
@@ -332,6 +342,44 @@
   #articles .section-label { color: #9fe1cb; }
   #articles .section-title { color: #fff; }
   #articles .project-card { color: var(--ink); }
+  #articles article > .project-num {
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  #articles article > h3 {
+    font-size: var(--text-article-title);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+  #articles .article-content {
+    color: var(--ink-light);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+  #articles .article-content p,
+  #articles .article-content li {
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  #articles .article-content p { margin-bottom: 1rem; }
+  #articles .article-content h4 {
+    color: var(--ink);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 2rem 0 0.75rem;
+  }
+  #articles .article-content ul {
+    margin: 0 0 1rem;
+    padding-left: 1.5rem;
+  }
+  #articles .article-content li { margin-bottom: 0.5rem; }
   .articles-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -339,14 +387,14 @@
     align-items: start;
   }
   .articles-text {
-    font-size: 16px; line-height: 1.8;
+    font-size: var(--text-base); line-height: 1.7;
     color: rgba(255,255,255,0.7);
   }
   .articles-text p + p { margin-top: 1rem; }
   .articles-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
   .articles-list li {
     display: flex; gap: 1rem; align-items: flex-start;
-    font-size: 15px; color: rgba(255,255,255,0.8);
+    font-size: var(--text-base); color: rgba(255,255,255,0.8);
   }
   .articles-list li::before {
     content: '→';
@@ -366,7 +414,7 @@
   .contact-links { display: flex; flex-direction: column; gap: 1rem; }
   .contact-link {
     display: flex; align-items: center; gap: 0.75rem;
-    font-size: 15px; color: var(--ink);
+    font-size: var(--text-base); color: var(--ink);
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -376,7 +424,7 @@
     border-radius: 8px;
     background: var(--accent-soft);
     display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
+    font-size: var(--text-base);
     flex-shrink: 0;
   }
 
@@ -388,7 +436,7 @@
     border-radius: 16px;
   }
   .qr-block p {
-    font-size: 12px; color: var(--ink-light);
+    font-size: var(--text-xs); color: var(--ink-light);
     text-align: center; max-width: 140px;
   }
   #qrcode canvas, #qrcode img { border-radius: 8px; }
@@ -398,7 +446,7 @@
     padding: 2rem;
     border-top: 1px solid var(--border);
     text-align: center;
-    font-size: 13px;
+    font-size: var(--text-xs);
     color: var(--ink-light);
   }
 
