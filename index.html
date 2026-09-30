@@ -259,7 +259,7 @@
   /* PROJECTS */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 1.5rem;
   }
   .project-card {
@@ -450,8 +450,25 @@
   }
 
   @media (max-width: 768px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-card { display: none; }
+    .hero {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+      min-height: auto;
+      padding: 3rem 1.25rem;
+    }
+    .hero-card {
+      display: flex;
+      width: 100%;
+      max-width: 420px;
+      justify-self: center;
+      padding: 1.25rem;
+      gap: 1rem;
+    }
+    .avatar {
+      width: min(100%, 240px);
+      height: auto;
+      aspect-ratio: 1;
+    }
     .about-grid, .contact-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr; }
     nav .nav-links { display: none; }
