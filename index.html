@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maria Lebedeva — BI Team Lead | Business Intelligence & Analytics</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -323,28 +322,37 @@
   #about { background: var(--ink); color: #fff; }
   #about .section-label { color: #9fe1cb; }
   #about .section-title { color: #fff; }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+  #about .project-card {
+    color: var(--ink);
+    background: var(--surface);
   }
-  .about-text {
-    font-size: var(--text-base); line-height: 1.7;
-    color: rgba(255,255,255,0.7);
+  #about .about-card {
+    padding: 2rem 2rem 1.5rem;
   }
-  .about-text p + p { margin-top: 1rem; }
-  .about-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-  .about-list li {
-    display: flex; gap: 1rem; align-items: flex-start;
-    font-size: var(--text-base); color: rgba(255,255,255,0.8);
+  #about .about-card > h3 {
+    font-size: var(--text-article-title);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
   }
-  .about-list li::before {
-    content: '→';
-    color: #9fe1cb;
-    flex-shrink: 0;
-    margin-top: 1px;
+  #about .about-card .article-content {
+    color: var(--ink-light);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.7;
   }
+  #about .about-card .article-content p,
+  #about .about-card .article-content li {
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  #about .about-card .article-content p { margin-bottom: 1rem; }
+  #about .about-card .article-content ul {
+    margin: 0 0 1rem;
+    padding-left: 1.5rem;
+  }
+  #about .about-card .article-content li { margin-bottom: 0.5rem; }
 
   /* ARTICLES */
   #articles { background: var(--ink); color: #fff; }
@@ -416,8 +424,8 @@
   #contact { border-top: 1px solid var(--border); }
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     align-items: start;
   }
   .contact-links { display: flex; flex-direction: column; gap: 1rem; }
@@ -436,19 +444,6 @@
     font-size: var(--text-base);
     flex-shrink: 0;
   }
-
-  .qr-block {
-    display: flex; flex-direction: column; align-items: center; gap: 1rem;
-    padding: 1.5rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-  }
-  .qr-block p {
-    font-size: var(--text-xs); color: var(--ink-light);
-    text-align: center; max-width: 140px;
-  }
-  #qrcode canvas, #qrcode img { border-radius: 8px; }
 
   /* FOOTER */
   footer {
@@ -547,8 +542,8 @@
     <p class="hero-role">BI Team Lead | Data Analyst | BI Developer</p>
     <div class="card-stats">
       <div class="stat">
-        <span class="stat-num">300+</span>
-        <span class="stat-label">Creating & Supporting Dashboards</span>
+        <span class="stat-num">~300</span>
+        <span class="stat-label">Dashboards managed across the portfolio</span>
       </div>
       <div class="stat">
         <span class="stat-num">5+</span>
@@ -567,19 +562,19 @@
 <section id="about">
   <div class="section-inner">
     <h2 class="section-title">About Me</h2>
-    <div class="about-grid">
-      <div class="about-text">
+    <article class="project-card about-card">
+      <div class="article-content">
         <p>BI Team Lead with experience in IT outsourcing for the financial sector. I build processes that scale — from visualisation standards and quality control systems to data governance frameworks.</p>
         <p>I believe a great dashboard is not a pretty picture, but a decision-making tool. That's what my team works towards every day.</p>
         <p>I also believe that a well-built, motivated team can take on any project — no challenge is too great when the people and the team spirit are right.</p>
+        <ul>
+          <li>Power BI, DAX, SQL &amp; AI Tools — Core Toolkit</li>
+          <li>Mentoring analysts and participating in career events as an ambassador</li>
+          <li>BI publications on Habr and other industry platforms</li>
+          <li>Planning to relocate to the UK in 2027</li>
+        </ul>
       </div>
-      <ul class="about-list">
-        <li>Power BI, DAX, SQL & AI Tools — Core Toolkit</li>
-        <li>Mentoring Analysts; Participating in Career Events as an Ambassador</li>
-        <li>BI Publications on Habr</li>
-        <li>Planning to Relocate to the UK (2027)</li>
-      </ul>
-    </div>
+    </article>
   </div>
 </section>
 
@@ -589,33 +584,33 @@
     <h2 class="section-title">Skills <span class="amp">&amp;</span> Stack</h2>
     <div class="skills-grid">
       <div class="skill-card">
-        <h3>Power BI</h3>
+        <h3>Power BI + Power BI Service</h3>
         <div class="skill-bar-bg"><div class="skill-bar" data-w="90" style="width:0"></div></div>
         <span class="skill-level">Advanced</span>
       </div>
       <div class="skill-card">
         <h3>DAX</h3>
-        <div class="skill-bar-bg"><div class="skill-bar" data-w="85" style="width:0"></div></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="90" style="width:0"></div></div>
         <span class="skill-level">Advanced</span>
-      </div>
-      <div class="skill-card">
-        <h3>SQL</h3>
-        <div class="skill-bar-bg"><div class="skill-bar" data-w="75" style="width:0"></div></div>
-        <span class="skill-level">Intermediate</span>
       </div>
       <div class="skill-card">
         <h3>Power Query (M)</h3>
-        <div class="skill-bar-bg"><div class="skill-bar" data-w="88" style="width:0"></div></div>
-        <span class="skill-level">Advanced</span>
-      </div>
-      <div class="skill-card">
-        <h3>AI</h3>
         <div class="skill-bar-bg"><div class="skill-bar" data-w="80" style="width:0"></div></div>
         <span class="skill-level">Advanced</span>
       </div>
       <div class="skill-card">
+        <h3>SQL</h3>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="70" style="width:0"></div></div>
+        <span class="skill-level">Intermediate</span>
+      </div>
+      <div class="skill-card">
         <h3>Excel</h3>
-        <div class="skill-bar-bg"><div class="skill-bar" data-w="82" style="width:0"></div></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="60" style="width:0"></div></div>
+        <span class="skill-level">Intermediate</span>
+      </div>
+      <div class="skill-card">
+        <h3>AI (skills, prompts)</h3>
+        <div class="skill-bar-bg"><div class="skill-bar" data-w="60" style="width:0"></div></div>
         <span class="skill-level">Intermediate</span>
       </div>
     </div>
@@ -629,16 +624,16 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-num">01</div>
-        <h3>Standardisation of 300+ Power BI Reports</h3>
-        <p>UX/UI unification of a large report portfolio for a financial sector client. Built a unified design system, reusable templates and structured review processes to improve consistency and governance compliance.</p>
+        <h3>Standardisation of Power BI Reports</h3>
+        <p>UX/UI unification of a large report portfolio for a financial sector client. Built a unified design system, reusable templates and structured review processes to improve consistency and governance compliance. The result was clearer, more understandable reporting for business users, a faster workflow for analysts who could build on a ready-made structure instead of creating dashboards from scratch, and a broader adoption of BI tools across the business, leading to a twofold increase in report views.</p>
         <span class="tag">Power BI</span>
         <span class="tag">UX/UI</span>
         <span class="tag">Standardisation</span>
       </div>
       <div class="project-card">
         <div class="project-num">02</div>
-        <h3>Self-Service Analytics via Power BI</h3>
-        <p>Led self-service analytics initiatives enabling business users to explore data independently. Included legacy report refactoring, reporting standardisation and rollout of reusable Power BI templates across the organisation.</p>
+        <h3>Self-Service Solution via Power BI</h3>
+        <p>Led a self-service analytics solution that combined current and historical data, giving business users a single tool to work with up-to-date and trend data without waiting for manual report requests. The result was a scalable BI experience: users gained autonomy for daily analysis, while the BI team reduced the load from ad hoc requests and lowered the cost of support-driven work.</p>
         <span class="tag">Power BI</span>
         <span class="tag">Self-Service</span>
         <span class="tag">Automation</span>
@@ -706,7 +701,7 @@
 
         <h4>2. The idea: building the constructor</h4>
         <p>Over the years, I've landed on one guiding principle: <strong>simpler is better</strong>. It helps me build dashboards that make sense to the business — and leave behind a codebase that's actually readable.</p>
-        <p>But in practice, I keep seeing two extremes: either the visualisation potential is barely used, or the dashboard is so overloaded with every possible chart type that you can't make sense of it even after 5 minutes of staring at graphs and pie charts 😅</p>
+        <p>But in practice, I keep seeing two extremes: either the visualisation potential is barely used, or the dashboard is so overloaded with every possible chart type that you can't make sense of it even after 5 minutes of staring at graphs and pie charts.</p>
         <p>Another common pattern — inconsistent styling across dashboards within the same company (which means unpredictability for users), and noticeably slow build times.</p>
         <p>At my last job, my colleagues and I didn't just build a report template — we went further and built a full dashboard constructor:</p>
         <ul>
@@ -728,7 +723,7 @@
 
         <h4>3. Adoption: getting the team to use it</h4>
         <p>Building a template is 20% of the work. The other 80% is getting the team to actually use it.</p>
-        <p>The foundation — a single reporting standard — was ready, but legacy reports and old habits weren't going anywhere. So my team and I had a long, occasionally painful process of fixing mistakes ahead of us 😅</p>
+        <p>The foundation — a single reporting standard — was ready, but legacy reports and old habits weren't going anywhere. So my team and I had a long, occasionally painful process of fixing mistakes ahead of us.</p>
         <p>What we did:</p>
         <ul>
           <li>Ran workshops for BI developers</li>
@@ -745,7 +740,7 @@
         <h4>4. A year later: results and impact</h4>
         <p>The project didn't just survive — it kept growing.</p>
         <p>Over the past year, the dashboard standardisation project hasn't just stayed alive — it's kept evolving and paying off.</p>
-        <p>Within a year, we migrated <strong>261 reports</strong> to the new reporting standard and released <strong>32 new reports</strong> built in the new format from the start.</p>
+        <p>At the time of this update (October 2026), we had standardized <strong>169 reports</strong> out of <strong>209</strong> in the new template, which represents approximately <strong>81%</strong> of the reporting portfolio in the new standard. A further <strong>24 reports</strong> were planned for migration and <strong>12 reports</strong> were in progress with the team. The project began in August 2025.</p>
         <p>We've collected a lot of positive feedback from report users. And positive feedback from BI developers too — both those who were on the team before the project started, and those who joined much later, once we'd fully switched to building on the template and running visual reviews.</p>
         <p>One thing worth highlighting: new joiners also noted how easy the template made dashboard building. It helps junior specialists just as much as people who joined us with experience in other BI tools.</p>
         <p>All of this points to one conclusion: the project worked — and standardisation genuinely matters when building corporate reporting, especially once your company has 10+ dashboards.</p>
@@ -764,7 +759,8 @@
     <h2 class="section-title">Recommendations</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <p>Maria approaches BI not as building individual reports, but as a professional discipline built on standards, processes, documentation and knowledge sharing. She led the inventory and analysis of a portfolio of 350+ reports used by 1,500+ people across ~20 departments: she introduced unique report IDs linked to Jira, set up a review process against agreed templates, and brought more than 80% of the portfolio to the new standard. She also drives Self-Service BI, runs regular knowledge-sharing sessions and mentors colleagues as a buddy. Her focus on clear standards and well-defined semantic models makes her a strong partner for Data Engineering.</p>
+        <p>Maria approaches BI not as building individual reports, but as a professional discipline built on standards, processes, documentation and knowledge sharing. She led the inventory and analysis of a portfolio of reports used by 1,500+ people across ~20 departments: she introduced unique report IDs linked to Jira, set up a review process against agreed templates, and brought more than 80% of the portfolio to the new standard. She also drives Self-Service BI, runs regular knowledge-sharing sessions and mentors colleagues as a buddy. Her focus on clear standards and well-defined semantic models makes her a strong partner for Data Engineering.</p>
+        <p><small><em>Note: including archived reports, the overall portfolio reached 398 reports; the current actively supported portfolio managed by Maria's team is approximately 300 reports, with the exact figure at 281 as of October 2026. This number is dynamic and changes as the team monitors active report inventory, retires outdated reports and introduces new ones.</em></small></p>
         <p><strong>Sergey Mozzhukhin</strong>, DWH Team Lead</p>
         <p><em>Worked together since October 2024 (2 years)</em></p>
       </div>
@@ -778,28 +774,32 @@
     <h2 class="section-title">Let's Connect</h2>
     <div class="contact-grid">
       <div class="contact-links">
-        <a href="https://www.linkedin.com/in/mariaa-swan/" class="contact-link" target="_blank">
+        <a href="https://www.linkedin.com" class="contact-link" target="_blank" rel="noreferrer">
           <span class="contact-icon">in</span>
-          linkedin.com/in/mariaa-swan
+          LinkedIn
         </a>
-        <a href="mailto:mari1984zotova@gmail.com" class="contact-link">
+        <a href="https://t.me/your_handle" class="contact-link" target="_blank" rel="noreferrer">
+          <span class="contact-icon">tg</span>
+          Telegram
+        </a>
+        <a href="https://wa.me/00000000000" class="contact-link" target="_blank" rel="noreferrer">
+          <span class="contact-icon">wa</span>
+          WhatsApp
+        </a>
+        <a href="mailto:hello@example.com" class="contact-link">
           <span class="contact-icon">@</span>
-          mari1984zotova@gmail.com
+          hello@example.com
         </a>
         <!--
-        <a href="https://github.com/MariaSwan25" class="contact-link" target="_blank">
+        <a href="https://github.com/MariaSwan25" class="contact-link" target="_blank" rel="noreferrer">
           <span class="contact-icon">gh</span>
           github.com/MariaSwan25
         </a>
-        <a href="https://adplist.org/yourprofile" class="contact-link" target="_blank">
+        <a href="https://adplist.org/yourprofile" class="contact-link" target="_blank" rel="noreferrer">
           <span class="contact-icon">◎</span>
           ADPList — BI Mentor
         </a>
         -->
-      </div>
-      <div class="qr-block">
-        <div id="qrcode"></div>
-        <p>Scan to Open Portfolio</p>
       </div>
     </div>
   </div>
@@ -842,15 +842,6 @@
     });
   }, { threshold: 0.3 });
   bars.forEach(b => obs.observe(b));
-
-  new QRCode(document.getElementById("qrcode"), {
-    text: "https://mariaswan25.github.io",
-    width: 140,
-    height: 140,
-    colorDark: "#1a1a18",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H
-  });
 </script>
 </body>
 </html>
